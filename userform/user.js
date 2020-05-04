@@ -1,31 +1,96 @@
-const name = document.getElementById('username')
-const name = document.getElementById('firstname')
-const name = document.getElementById('lastname')
-const password = document.getElementById('pass')
-const name = document.getElementById('email')
-const form = document.getElementById('form')
+const form = document.getElementById('form');
+const username = document.getElementById('username');
+const email = document.getElementById('email');
+const password = document.getElementById('pass');
+const firstname = document.getElementById('firstname');
+const lastname = document.getElementById('lastname');
 
-form.addEventListener('submit', (e) => {
-    let messages = []
-    if (name.value === '' || name.value == null) {
-        messages.push('Name is required')
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    checkInputs();
+});
+
+function checkInputs() {
+    // trim to remove the whitespaces
+    const usernameValue = username.value.trim();
+    const emailValue = email.value.trim();
+    const passwordValue = password.value.trim();
+    const firstnameValue = firstname.value.trim();
+    const lastnameValue = lastname.value.trim();
+
+
+    if (usernameValue === '') {
+        setErrorFor(username, 'Username cannot be blank');
+    } else {
+        setSuccessFor(username);
     }
 
-    if (password.value.length <= 6) {
-        messages.push('Password must be longer than 6 characters')
+    if (emailValue === '') {
+        setErrorFor(email, 'Email cannot be blank');
+    } else if (!isEmail(emailValue)) {
+        setErrorFor(email, 'Not a valid email');
+    } else {
+        setSuccessFor(email);
     }
 
-    if (password.value.length >= 20) {
-        messages.push('Password must be less than 20 characters')
+    if (passwordValue === '') {
+        setErrorFor(password, 'Password cannot be blank');
+    } else {
+        setSuccessFor(password);
     }
 
-    if (password.value === 'password') {
-        messages.push('Password cannot be password')
+    if (firstnameValue === '') {
+        setErrorFor(firstname, 'First Name cannot be blank');
+    } else {
+        setSuccessFor(firstname);
     }
 
-
-    if (messages.length > 0) {
-        e.preventDefault()
-        ErrorElement.innerText = messages.join(',')
+    if (lastnameValue === '') {
+        setErrorFor(lastname, 'Last Name cannot be blank');
+    } else {
+        setSuccessFor(lasttname);
     }
-})
+}
+
+function setErrorFor(input, message) {
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('small');
+    formControl.className = 'form-control error';
+    small.innerText = message;
+}
+
+function setSuccessFor(input) {
+    const formControl = input.parentElement;
+    formControl.className = 'form-control success';
+}
+
+function isEmail(email) {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// SOCIAL PANEL JS
+const floating_btn = document.querySelector('.floating-btn');
+const close_btn = document.querySelector('.close-btn');
+const social_panel_container = document.querySelector('.social-panel-container');
+
+floating_btn.addEventListener('click', () => {
+    social_panel_container.classList.toggle('visible')
+});
+
+close_btn.addEventListener('click', () => {
+    social_panel_container.classList.remove('visible')
+});

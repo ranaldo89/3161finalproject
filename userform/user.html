@@ -37,22 +37,47 @@
     <div class="mainbar">
         <div class="formdiv">
 
-            <form onsubmit="validatePassword()">
-                <label for="user">Username</label>
-                <input type="text" id="user" name="username">
+            <form id="form" class="form">
 
-                <label for="fname">First Name</label>
-                <input type="text" id="ffname" name="firstname">
+                <div class="form-control">
+                    <label for="username">Username</label>
+                    <input type="text" placeholder="florinpop17" id="username" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
 
-                <label for="lname">Last Name </label>
-                <input type="text" id="lname" name="lastname">
+                <div class="form-control">
+                    <label for="username">First Name</label>
+                    <input type="text" placeholder="first name" id="first name" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
 
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email">
+                <div class="form-control">
+                    <label for="username">Last Name</label>
+                    <input type="text" placeholder="last name" id="lastname" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
 
-                <label for="lname"> Password</label>
-                <input type="password" id="pass" name="pass">
+                <div class="form-control">
+                    <label for="username">Email</label>
+                    <input type="email" placeholder="a@florin-pop.com" id="email" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
 
+                <div class="form-control">
+                    <label for="username">Password</label>
+                    <input type="password" placeholder="Password" id="pass" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
                 <div class="control-group">
                     <label for="dob-day" class="control-label">Date of birth</label>
                     <div class="controls">
@@ -235,10 +260,12 @@
 
 
                 </form>
-                <button type="submit">Submit</button>
+                <button type="submit"> submit </button>
             </form>
         </div>
     </div>
+
+
 
 
 </body>
